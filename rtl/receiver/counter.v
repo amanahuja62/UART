@@ -3,6 +3,7 @@ module counter(
     input reset,clk,up,
     output countReached
     );
+	 // this counter is used to divide the frequency of clock input to the receiver and transmitter
 	 //countReached becomes 1 when count==8
 	 reg [3:0]  count;
 	 assign countReached=count[3]&(~count[2])&(~count[1])&(~count[0]);
