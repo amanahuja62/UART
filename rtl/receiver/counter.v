@@ -3,7 +3,8 @@ module counter(
     input reset,clk,up,
     output countReached
     );
-	 // this counter is used to divide the frequency of clock input to the receiver and transmitter
+	// this counter is used to make transmitter stay in the data sending state for eight consecutive clock cycles
+	// it is also used by receiver to stay in data receiving state for eight consecutive clock cycles
 	 //countReached becomes 1 when count==8
 	 reg [3:0]  count;
 	 assign countReached=count[3]&(~count[2])&(~count[1])&(~count[0]);
